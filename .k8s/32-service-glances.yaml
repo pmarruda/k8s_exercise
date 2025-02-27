@@ -1,0 +1,13 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: glances-service
+  namespace: dashboard
+spec:
+  selector:
+    app: glances
+  ports:
+    - protocol: TCP
+      port: 61208
+      targetPort: 61208
+  type: NodePort

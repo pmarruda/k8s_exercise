@@ -1,0 +1,21 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: glances
+  namespace: dashboard
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: glances
+  template:
+    metadata:
+      labels:
+        app: glances
+    spec:
+      containers:
+        - name: glances
+          image: nicolargo/glances
+          ports:
+            - containerPort: 61208
+          command: ["glances", "--webserver"]
