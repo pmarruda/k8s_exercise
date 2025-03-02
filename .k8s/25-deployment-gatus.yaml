@@ -1,0 +1,30 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: gatus
+  namespace: dashboard
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: gatus
+  template:
+    metadata:
+      labels:
+        app: gatus
+    spec:
+      containers:
+      - name: gatus
+        image: twinproduction/gatus:latest
+        ports:
+          - containerPort: 8080
+            name: http
+            protocol: TCP
+        volumeMounts:
+          - name: config
+            mountPath: /config
+            readOnly: true
+      volumes:
+      - name: config
+        configMap:
+          name: gatus-config
