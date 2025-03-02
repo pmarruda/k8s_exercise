@@ -13,6 +13,17 @@ spec:
       labels:
         app: heimdall
     spec:
+      initContainers:
+        - name: heimdall-init
+          image: busybox:latest
+          command: ["/bin/sh", "-c"]
+          #copy config file if it doesn't exist yet:
+          args: ["mkdir -p /config/www && if [ ! -f /config/www/app.sqlite ]; then cp /tmp-config/app.sqlite /config/www/app.sqlite ; fi"]
+          volumeMounts:
+            - name: heimdall-config-volume    
+              mountPath: /tmp-config
+            - name: heimdall-storage         
+              mountPath: /config
       containers:
         - name: heimdall
           image: lscr.io/linuxserver/heimdall:latest
@@ -26,9 +37,12 @@ spec:
             - name: TZ
               value: "Etc/UTC"
           volumeMounts:
-            - mountPath: /config
-              name: heimdall-storage
+            - name: heimdall-storage
+              mountPath: /config
       volumes:
         - name: heimdall-storage
           persistentVolumeClaim:
             claimName: heimdall-pvc
+        - name: heimdall-config-volume
+          configMap:
+            name: heimdall-config

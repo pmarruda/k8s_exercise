@@ -8,6 +8,7 @@ kubectl apply -f 90-pvc-heimdall.yaml
 kubectl apply -f 91-pvc-grafana.yaml
 
 echo "Applying ConfigMaps..."
+kubectl apply -f 80-config-heimdall.yaml
 kubectl apply -f 83-config-prometheus.yaml
 
 echo "Deploying Applications..."

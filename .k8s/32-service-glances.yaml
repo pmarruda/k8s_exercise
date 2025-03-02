@@ -10,4 +10,5 @@ spec:
     - protocol: TCP
       port: 61208
       targetPort: 61208
+      nodePort: 31381
   type: NodePort
