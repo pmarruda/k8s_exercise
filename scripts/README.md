@@ -11,3 +11,8 @@ The `deploy.sh` script automates the deployment of all the components in this pr
 4. **Apply Deployments**: The script applies the deployment configurations to deploy Heimdall, Grafana, Glances, Prometheus, Node Explorer, and Gatus applications.
 
 5. **Apply Services**: The script applies the service configurations to expose Heimdall, Grafana, Glances, Prometheus, Node Explorer, and Gatus applications.
+
+### **Usage**:
+```sh
+./deploy.sh
+```

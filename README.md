@@ -6,9 +6,8 @@ This project sets up a Kubernetes environment for a Home Lab with multiple appli
 
 To deploy and test this project, you will need the following:
 
-- **Kubernetes**: Enable Kubernetes in Docker Desktop. You can do this by going to Docker Desktop settings, navigating to the Kubernetes tab, and checking the "Enable Kubernetes" option.
+- **Kubernetes**: Ensure you have a running Kubernetes cluster. You can use any Kubernetes engine (K3s, MicroK8s, Minikube, etc.) but the one used was Docker Desktop. You can download it from [Docker's official website](https://www.docker.com/products/docker-desktop).
 - **kubectl**: Install `kubectl`, the Kubernetes command-line tool. You can follow the installation instructions from the [official Kubernetes documentation](https://kubernetes.io/docs/tasks/tools/install-kubectl/).
-- **Kubernetes Engine**: Any Kubernetes engine should work (K3s, MicroK8s, Minikube, ...) but the one used was Docker Desktop. You can download it from [Docker's official website](https://www.docker.com/products/docker-desktop).
 
 ## Features
 
